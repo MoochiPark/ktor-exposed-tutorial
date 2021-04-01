@@ -1,0 +1,20 @@
+### 추가
+POST http://localhost:8080/customers
+Content-Type: application/json
+
+{
+  "firstName": "Daewon",
+  "lastName": "Park",
+  "email": "moochi@kakao.com"
+}
+
+### 전체 조회
+GET http://localhost:8080/customers
+
+### id로 조회
+GET http://localhost:8080/customers/1
+###
+GET http://localhost:8080/customers/에러
+
+### id로 삭제
+DELETE http://localhost:8080/customers/1
