@@ -5,6 +5,16 @@ Content-Type: application/json
 {
   "firstName": "Daewon",
   "lastName": "Park",
+  "email": "moochi3@kakao.com"
+}
+
+### 수정
+PUT http://localhost:8080/customers/1
+Content-Type: application/json
+
+{
+  "firstName": "Daewon2",
+  "lastName": "Park",
   "email": "moochi@kakao.com"
 }
 

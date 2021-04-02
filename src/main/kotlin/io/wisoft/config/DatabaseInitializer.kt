@@ -20,12 +20,12 @@ object DatabaseInitializer {
 
 private fun hikariConfig() =
     HikariConfig().apply {
-        driverClassName = "org.h2.Driver"
-        jdbcUrl = "jdbc:h2:mem:test"
+        driverClassName = "org.postgresql.Driver"
+        jdbcUrl = "jdbc:postgresql://arjuna.db.elephantsql.com:5432/liwpyxkm"
         maximumPoolSize = 3
         isAutoCommit = false
-        username = "sa"
-        password = "sa"
+        username = "liwpyxkm"
+        password = "J0x23x6ndPI7mRoXQVD0o870-GIsYcxW"
         transactionIsolation = "TRANSACTION_REPEATABLE_READ"
         validate()
     }

@@ -35,7 +35,8 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-dao:$exposedVersion")
     runtimeOnly("org.jetbrains.exposed:exposed-jdbc:$exposedVersion")
 
-    runtimeOnly("com.h2database:h2:1.4.200")
+//    runtimeOnly("com.h2database:h2:1.4.200")
+    runtimeOnly("org.postgresql:postgresql:42.2.19.jre7")
 
     implementation("com.zaxxer:HikariCP:4.0.3")
 

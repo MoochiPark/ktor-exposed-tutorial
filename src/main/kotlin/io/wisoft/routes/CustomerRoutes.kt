@@ -3,6 +3,10 @@ package io.wisoft.routes
 import io.ktor.application.*
 import io.ktor.features.*
 import io.ktor.http.*
+import io.ktor.http.HttpStatusCode.Companion.Accepted
+import io.ktor.http.HttpStatusCode.Companion.BadRequest
+import io.ktor.http.HttpStatusCode.Companion.Created
+import io.ktor.http.HttpStatusCode.Companion.NoContent
 import io.ktor.request.*
 import io.ktor.response.*
 import io.ktor.routing.*
@@ -19,26 +23,35 @@ fun Routing.customer(service: CustomerService) {
         }
         get("{id}") {
             val id = call.parameters["id"]?.toLongOrNull()
-                ?: throw BadRequestException("Parameter id is null")
+                ?: return@get call.respondText(
+                    "Parameter id is null",
+                    status = BadRequest
+                )
             call.respond(service.getById(id))
         }
         post {
             val request = call.receive<CustomerRequest>()
             service.new(request)
-            call.response.status(HttpStatusCode.Created)
+            call.respondText("Customer stored correctly", status = Created)
         }
         put("{id}") {
             val id = call.parameters["id"]?.toLongOrNull()
-                ?: throw BadRequestException("Parameter id is null")
+                ?: return@put call.respondText(
+                    "Parameter id is null",
+                    status = BadRequest
+                )
             val request = call.receive<CustomerRequest>()
             service.renew(id, request)
-            call.response.status(HttpStatusCode.NoContent)
+            call.respond(NoContent)
         }
         delete("{id}") {
             val id = call.parameters["id"]?.toLongOrNull()
-                ?: throw BadRequestException("Parameter id is null")
+                ?: return@delete call.respondText(
+                    "Parameter id is null",
+                    status = BadRequest
+                )
             service.delete(id)
-            call.response.status(HttpStatusCode.NoContent)
+            call.respond(Accepted)
         }
     }
 }
