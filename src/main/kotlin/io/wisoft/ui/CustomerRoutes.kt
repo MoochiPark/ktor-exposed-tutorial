@@ -1,4 +1,4 @@
-package io.wisoft.routes
+package io.wisoft.ui
 
 import io.ktor.application.*
 import io.ktor.features.*

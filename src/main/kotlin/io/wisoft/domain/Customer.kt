@@ -9,7 +9,7 @@ import org.jetbrains.exposed.dao.id.LongIdTable
 object Customers : LongIdTable() {
     val firstName = text("first_name")
     val lastName = text("last_name")
-    val email = text("email").uniqueIndex()
+    val email = text("email")
 }
 
 // Entity

@@ -30,11 +30,9 @@ class CustomerService {
 
     suspend fun renew(id: Long, request: CustomerRequest) = query {
         val customer = Customer.findById(id) ?: throw NotFoundException()
-//        checkDuplicate(request.email)
         customer.apply {
             firstName = request.firstName
             lastName = request.lastName
-            email = request.email
         }
     }
 

@@ -7,7 +7,7 @@ import io.ktor.serialization.*
 import io.ktor.util.*
 import io.wisoft.application.CustomerService
 import io.wisoft.config.DatabaseInitializer
-import io.wisoft.routes.customer
+import io.wisoft.ui.customer
 
 fun main(args: Array<String>) {
     io.ktor.server.netty.EngineMain.main(args)
