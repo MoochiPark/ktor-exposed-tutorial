@@ -10,6 +10,7 @@ import java.time.LocalDateTime
 object Orders : LongIdTable() {
     val status = text("status")
     val orderDate = datetime("order_date").default(LocalDateTime.now())
+    val customer = reference("order_customer", Customers)
 }
 
 class Order(id: EntityID<Long>) : LongEntity(id) {
@@ -17,4 +18,6 @@ class Order(id: EntityID<Long>) : LongEntity(id) {
 
     var status by Orders.status
     var orderDate by Orders.orderDate
+    val customer by Customer referrersOn Orders.customer
+    val items by OrderItem referrersOn OrderItems.order
 }
